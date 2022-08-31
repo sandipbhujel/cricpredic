@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<section style="padding-left: 10px; padding-top: 15px;">
+<div class="row no-gutters">
+	<div class="col-lg-6 col-md-6 wizard-content-right">
+		<div>
+			<form action="{% url 'result' %}" method="POST" role="form">
+				{% csrf_token %}
+				<fieldset class="wizard-fieldset show">
+					<h5>Match Information</h5>
+					<div class="form-group">
+					 	<label for="CurrentScore:">Current Score:</label>
+						<input class="form-control" type="text" name="n1" placeholder="current score">
+					</div>
+					<div class="form-group">
+						<label for="Balls_left:">Balls Left:</label>
+						<input class="form-control" type="text" name="n2" placeholder="balls left">
+					</div>
+					<div class="form-group">
+						<label for="Wickets_left:">Wickets Left:</label>
+						<input class="form-control" type="text" name="n3" placeholder="wickets left">
+					</div>
+					<div class="form-group">
+						<label for="Currentrunrate:">Current Run Rate:</label>
+						<input class="form-control" type="text" name="n4" placeholder="current run rate">
+					</div>
+					<div class="form-group">
+						<label for="Lastfiveoversrun:">Last Five Overs Run:</label>
+						<input class="form-control" type="text" name="n5" placeholder="last five over runs">
+					</div>
+					<div class="form-group">
+						<label>Please select Algorithm:</label><br>
+						<input type="radio" name="algo" value="ml">Multiple Linear<input type="radio" name="algo" value="rf">Random Forest
+					</div>
+					<div class="form-group clearfix" style="padding-top: 5px;">
+						<button class="btn btn-primary" type="Submit">Submit</button>
+					</div>
+				</fieldset>	
+			</form>
+		</div>
+	</div>
+	<div class="col-lg-6 col-md-6">
+		<div class="wizard-content-left d-flex justify-content-center align-items-center">
+			<div style="position: relative;">
+				<div>
+					<h3>Predict a ongoing T20 match socre using CricPredict.</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+</section>
+{% endblock content%}
